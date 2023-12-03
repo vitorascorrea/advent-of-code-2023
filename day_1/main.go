@@ -22,7 +22,7 @@ var spelledOutNumbers = map[string]int{
 }
 
 func main() {
-	f, err := os.Open("day_one/input.txt")
+	f, err := os.Open("day_1/input.txt")
 
 	if err != nil {
 		log.Fatal(err)
