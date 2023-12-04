@@ -83,15 +83,18 @@ func deleteEmptyValues(array []string) []string {
 
 func computeTotalScratchcards(cards []string) int {
 	var cardsMap = map[string]int{}
+	var cardsResultsMap = map[string]int{}
 
 	for _, card := range cards {
 		cardsMap[card] = 1
+		var totalMatches, _ = computeWinningNumbers(card)
+		cardsResultsMap[card] = totalMatches
 	}
 
 	for x, card := range cards {
 		var count = cardsMap[card]
 		for i := 0; i < count; i++ {
-			var totalMatches, _ = computeWinningNumbers(card)
+			var totalMatches = cardsResultsMap[card]
 
 			if totalMatches == 0 {
 				continue
